@@ -63,3 +63,15 @@ print_table(headers, rows)
 #                print(line['Recipe'].ljust(30),
 #                      line['Season'].ljust(10),
 #                      line['Enabled'])
+
+#Format the data.
+recipes = []
+for row in rows:
+    recipe = {}
+    for num in range(len(headers) - 1):
+        recipe[headers[num]] = row[num]
+    grocery_list = []
+    for num in range(len(headers)-1, len(row)):
+        grocery_list.append(row[num])
+    recipe[headers[len(headers) - 1]] = grocery_list
+    recipes.append(recipe)
