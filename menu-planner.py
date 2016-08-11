@@ -52,7 +52,7 @@ def print_table(headers, rows):
     for item in rows:
         print_table_row(item, len(headers))
 
-print_table(headers, rows)
+#print_table(headers, rows)
 
 # Read the recipes file and print only the enabled rows for this season
 # list comprehension?
@@ -75,3 +75,13 @@ for row in rows:
         grocery_list.append(row[num])
     recipe[headers[len(headers) - 1]] = grocery_list
     recipes.append(recipe)
+
+def print_dict_table(dict_table, headers):
+    print_table_row(headers, len(headers))
+    for dict_item in dict_table:
+        as_list = []
+        for num in range(len(headers)):
+            as_list.append(dict_item[headers[num]])
+        print_table_row(as_list, len(as_list))
+
+print_dict_table(recipes, headers)
