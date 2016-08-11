@@ -42,9 +42,10 @@ def ljust_trunc(str_in, width):
 
 def print_table_row(row, row_length):
     print(ljust_trunc(str(row[0]), 30), end='')
-    for num in range(1, len(row)):
+    for num in range(1, len(row)-1):
         if num < row_length:
-            print(ljust_trunc(str(row[num]), 8), ' ', end='')
+            print(ljust_trunc(str(row[num]), 6), ' ', end='')
+    print(ljust_trunc(str(row[len(row)-1]), 35), end='')
     print('')
 
 def print_table(headers, rows):
