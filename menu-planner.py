@@ -1,7 +1,7 @@
 #!/usr/bin/python3.5
 from datetime import date
 from recipes import Recipes
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 @app.route("/")
@@ -40,4 +40,4 @@ def menu():
     week.pretty_print()
     print('')
     week.print_grocery_list()
-    return week.get_recipe_names() + '<br>' + week.get_grocery_list()
+    return render_template('output.html', recipes=week.get_recipe_names(),  groceries=week.get_grocery_list())

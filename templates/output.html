@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>Roll For Dinner</title>
+
+{% block body %}
+    <h1>Recipes</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li>{{ recipe }}</li>
+        {% endfor %}
+    </ul>
+    <h1>Grocery List</h1>
+    <ul>
+        {% for item in groceries %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
