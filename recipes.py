@@ -100,3 +100,15 @@ class Recipes(object):
             for item in row['Grocery list']:
                 print(item)
 
+    def get_grocery_list(self):
+        groceries = []
+        for row in self.rows:
+            for item in row['Grocery list']:
+                groceries.append(item)
+        return '<br>'.join(groceries)
+
+    def get_recipe_names(self):
+        names = []
+        for row in self.rows:
+            names.append(row['Recipe'])
+        return '(' + ', '.join(names) + ')'
