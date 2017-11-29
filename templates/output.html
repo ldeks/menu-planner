@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<title>Roll For Dinner</title>
-
-{% block body %}
+<head>
+    <title>Roll For Dinner</title>
+    <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Quicksand"/>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
     <h1>Recipes</h1>
     <ul>
         {% for recipe in recipes %}
@@ -14,4 +17,4 @@
             <li>{{ item }}</li>
         {% endfor %}
     </ul>
-{% endblock %}
+</body>
