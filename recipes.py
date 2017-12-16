@@ -15,7 +15,7 @@ def ljust_trunc(str_in, width):
     else:
         str_out = str_in.ljust(width)
     return str_out
-    
+
 def print_table_row(row, row_length):
     print(ljust_trunc(str(row[0]), 30), end='')
     for num in range(1, len(row)-1):
@@ -66,12 +66,18 @@ class Recipes(object):
 
     def pretty_print(self):
         print_table_row(self.headers, len(self.headers))
+        names = []
         for dict_item in self.rows:
             as_list = []
+            names.append(dict_item[self.headers[0]]);
             for num in range(len(self.headers)):
                 as_list.append(dict_item[self.headers[num]])
             print_table_row(as_list, len(as_list))
-        
+        print('(%s, ' % names[0], end='');
+        for i in range(1,len(names)-1):
+            print('%s, ' % names[i], end='');
+        print('%s)' % names[len(names)-1]);
+
     def filter(self, key, allowed_values):
         other = Recipes()
         other.headers = self.headers
@@ -96,7 +102,10 @@ class Recipes(object):
 
     def print_grocery_list(self):
         print('Grocery list: -------------')
+        grocery_list = []
         for row in self.rows:
             for item in row['Grocery list']:
-                print(item)
-
+                grocery_list.append(item)
+        grocery_list = list(set(grocery_list))
+        for item in grocery_list:
+            print(item)
