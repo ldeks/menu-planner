@@ -15,6 +15,7 @@ if (len(sys.argv) > 1):
     recipes.load_from_file(sys.argv[1])
 else:
     recipes.load_from_file('recipes.csv')
+recipes = recipes.filter('Difficulty', ['1', '2'])
 
 # Sort the recipes
 enabled_recipes = recipes.filter('Enabled', [str(1)])
@@ -33,6 +34,7 @@ pesca_recipes = seasonal_recipes.filter('Protein', ['Fish', 'Vegetarian'])
 
 # Randomly select 3
 week = red_meat_recipes.random_recipe()
+week.add(chicken_recipes.random_recipe())
 week.add(chicken_recipes.random_recipe())
 week.add(pesca_recipes.random_recipe())
 
