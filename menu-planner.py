@@ -1,6 +1,7 @@
 #!/usr/bin/python3.5
 from datetime import date
 from recipes import Recipes
+import sys
 
 # Determine the season of the year
 month = date.today().month
@@ -10,7 +11,10 @@ else:
     current_season = "Winter"
 
 recipes = Recipes()
-recipes.load_from_file('recipes.csv')
+if (len(sys.argv) > 1):
+    recipes.load_from_file(sys.argv[1])
+else:
+    recipes.load_from_file('recipes.csv')
 
 # Sort the recipes
 enabled_recipes = recipes.filter('Enabled', [str(1)])
